@@ -1,0 +1,161 @@
+<mujoco model="yumi">
+    <compiler angle="radian" />
+    <visual>
+        <quality shadowsize="10000"/>
+    </visual>
+    <option gravity="0 0 0" iterations="20" integrator="Euler" />
+    <size njmax="500" nconmax="100" />
+    <asset>
+        <mesh name="coarse_body" file="coarse_body.stl" />
+        <mesh name="coarse_link_1" file="coarse_link_1.stl" />
+        <mesh name="coarse_link_2" file="coarse_link_2.stl" />
+        <mesh name="coarse_link_3" file="coarse_link_3.stl" />
+        <mesh name="coarse_link_4" file="coarse_link_4.stl" />
+        <mesh name="coarse_link_5" file="coarse_link_5.stl" />
+        <mesh name="coarse_link_6" file="coarse_link_6.stl" />
+        <mesh name="coarse_link_7" file="coarse_link_7.stl" />
+        <mesh name="base" file="base.stl" />
+        <mesh name="finger" file="finger.stl" />
+    </asset>
+    <worldbody>
+        <light diffuse=".5 .5 .5" pos="2 -2 2" dir="-1  1 -1"/>
+        <light diffuse=".5 .5 .5" pos="2  2 2" dir="-1 -1 -1"/>
+        <geom rgba="1 1 1 1" name="table" type="plane" pos="0 0 0" size="0.4 0.5 0.1" contype="1" conaffinity="1"/>
+        <body name="yumi_base_link" pos="-0.4 0 0">
+            <inertial pos="0 0 0" mass="0" diaginertia="0 0 0" />
+            <body name="yumi_body" pos="0 0 0">
+                <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="15" diaginertia="0.6 0.5 0.3" />
+                <geom type="mesh" rgba="0.8 0.8 0.8 1" mesh="coarse_body" />
+                <body name="yumi_link_1_r" pos="0.05355 -0.0725 0.41492" quat="0.219255 -0.407796 0.31429 -0.828765">
+                    <inertial pos="0 -0.03 0.12" mass="2" diaginertia="0.1 0.1 0.1" />
+                    <joint type="hinge" name="yumi_joint_1_r" pos="0 0 0" axis="0 0 1" limited="true" range="-2.94088 2.94088" />
+                    <geom type="mesh" mesh="coarse_link_1" />
+                    <body name="yumi_link_2_r" pos="0.03 0 0.1" quat="0.707107 0.707107 0 0">
+                        <inertial pos="0 0 0" mass="2" diaginertia="0.1 0.1 0.1" />
+                        <joint type="hinge" name="yumi_joint_2_r" pos="0 0 0" axis="0 0 1" limited="true" range="-2.50455 0.759218" />
+                        <geom type="mesh" mesh="coarse_link_2" />
+                        <body name="yumi_link_3_r" pos="-0.03 0.17283 0" quat="0.707107 -0.707107 0 0">
+                            <inertial pos="0 0 0" mass="2" diaginertia="0.1 0.1 0.1" />
+                            <joint type="hinge" name="yumi_joint_7_r" pos="0 0 0" axis="0 0 1" limited="true" range="-2.94088 2.94088" />
+                            <geom type="mesh" mesh="coarse_link_3" />
+                            <body name="yumi_link_4_r" pos="-0.04188 0 0.07873" quat="0.5 0.5 -0.5 0.5">
+                                <inertial pos="0 0 0" mass="2" diaginertia="0.1 0.1 0.1" />
+                                <joint type="hinge" name="yumi_joint_3_r" pos="0 0 0" axis="0 0 1" limited="true" range="-2.15548 1.39626" />
+                                <geom type="mesh" mesh="coarse_link_4" />
+                                <body name="yumi_link_5_r" pos="0.0405 0.16461 0" quat="0.707107 -0.707107 0 0">
+                                    <inertial pos="0 0 0" mass="2" diaginertia="0.1 0.1 0.1" />
+                                    <joint type="hinge" name="yumi_joint_4_r" pos="0 0 0" axis="0 0 1" limited="true" range="-5.06145 5.06145" />
+                                    <geom type="mesh" mesh="coarse_link_5" />
+                                    <body name="yumi_link_6_r" pos="-0.027 0 0.10039" quat="0.707107 0.707107 0 0">
+                                        <inertial pos="0 0 0" mass="2" diaginertia="0.1 0.1 0.1" />
+                                        <joint type="hinge" name="yumi_joint_5_r" pos="0 0 0" axis="0 0 1" limited="true" range="-1.53589 2.40855" />
+                                        <geom type="mesh" mesh="coarse_link_6" />
+                                        <body name="yumi_link_7_r" pos="0.027 0.029 0" quat="0.707107 -0.707107 0 0">
+                                            <inertial pos="0 0 0" mass="2" diaginertia="0.1 0.1 0.1" />
+                                            <joint type="hinge" name="yumi_joint_6_r" pos="0 0 0" axis="0 0 1" limited="true" range="-3.9968 3.9968" />
+                                            <geom type="mesh" mesh="coarse_link_7" />
+                                            <body name="gripper_r_base" pos="0 0 0.007" quat="0 0 0 1">
+                                                <inertial pos="0 0 0" mass="0.2" diaginertia="0.0001 0.0001 0.0001" />
+                                                <geom type="mesh" rgba="0.8 0.8 0.8 1" mesh="base" />
+                                                <body name="gripper_r_finger_r" pos="0 -0.0065 0.0837">
+                                                    <inertial pos="0 0 0" mass="0.01" diaginertia="1e-06 1e-06 1e-06" />
+                                                    <joint name="gripper_r_joint" pos="0 0 0" axis="-1 0 0" type="slide" limited="true" range="0 0.025" />
+                                                    <geom type="mesh" rgba="0.8 0.8 0.8 1" mesh="finger" />
+                                                </body>
+                                                <body name="gripper_r_finger_l" pos="0 0.0065 0.0837" quat="0 0 0 1">
+                                                    <inertial pos="0 0 0" mass="0.01" diaginertia="1e-06 1e-06 1e-06" />
+                                                    <joint name="gripper_r_joint_m" pos="0 0 0" axis="-1 0 0" type="slide" limited="true" range="0 0.025" />
+                                                    <geom type="mesh" rgba="0.8 0.8 0.8 1" mesh="finger" />
+                                                </body>
+                                            </body>
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+                <body name="yumi_link_1_l" pos="0.05355 0.0725 0.41492" quat="0.217632 0.40848 0.313437 0.829179">
+                    <inertial pos="0 -0.03 0.12" mass="2" diaginertia="0.1 0.1 0.1" />
+                    <joint type="hinge" name="yumi_joint_1_l" pos="0 0 0" axis="0 0 1" limited="true" range="-2.94088 2.94088" />
+                    <geom type="mesh" mesh="coarse_link_1" />
+                    <body name="yumi_link_2_l" pos="0.03 0 0.1" quat="0.707107 0.707107 0 0">
+                        <inertial pos="0 0 0" mass="2" diaginertia="0.1 0.1 0.1" />
+                        <joint type="hinge" name="yumi_joint_2_l" pos="0 0 0" axis="0 0 1" limited="true" range="-2.50455 0.759218" />
+                        <geom type="mesh" mesh="coarse_link_2" />
+                        <body name="yumi_link_3_l" pos="-0.03 0.17283 0" quat="0.707107 -0.707107 0 0">
+                            <inertial pos="0 0 0" mass="2" diaginertia="0.1 0.1 0.1" />
+                            <joint type="hinge" name="yumi_joint_7_l" pos="0 0 0" axis="0 0 1" limited="true" range="-2.94088 2.94088" />
+                            <geom type="mesh" mesh="coarse_link_3" />
+                            <body name="yumi_link_4_l" pos="-0.04188 0 0.07873" quat="0.5 0.5 -0.5 0.5">
+                                <inertial pos="0 0 0" mass="2" diaginertia="0.1 0.1 0.1" />
+                                <joint type="hinge" name="yumi_joint_3_l" pos="0 0 0" axis="0 0 1" limited="true" range="-2.15548 1.39626" />
+                                <geom type="mesh" mesh="coarse_link_4" />
+                                <body name="yumi_link_5_l" pos="0.0405 0.16461 0" quat="0.707107 -0.707107 0 0">
+                                    <inertial pos="0 0 0" mass="2" diaginertia="0.1 0.1 0.1" />
+                                    <joint type="hinge" name="yumi_joint_4_l" pos="0 0 0" axis="0 0 1" limited="true" range="-5.06145 5.06145" />
+                                    <geom type="mesh" mesh="coarse_link_5" />
+                                    <body name="yumi_link_6_l" pos="-0.027 0 0.10039" quat="0.707107 0.707107 0 0">
+                                        <inertial pos="0 0 0" mass="2" diaginertia="0.1 0.1 0.1" />
+                                        <joint type="hinge" name="yumi_joint_5_l" pos="0 0 0" axis="0 0 1" limited="true" range="-1.53589 2.40855" />
+                                        <geom type="mesh" mesh="coarse_link_6" />
+                                        <body name="yumi_link_7_l" pos="0.027 0.029 0" quat="0.707107 -0.707107 0 0">
+                                            <inertial pos="0 0 0" mass="2" diaginertia="0.1 0.1 0.1" />
+                                            <joint type="hinge" name="yumi_joint_6_l" pos="0 0 0" axis="0 0 1" limited="true" range="-3.9968 3.9968" />
+                                            <geom type="mesh" mesh="coarse_link_7" />
+                                            <body name="gripper_l_base" pos="0 0 0.007" quat="0 0 0 1">
+                                                <inertial pos="0 0 0" mass="0.2" diaginertia="0.0001 0.0001 0.0001" />
+                                                <geom type="mesh" rgba="0.8 0.8 0.8 1" mesh="base" />
+                                                <body name="gripper_l_finger_r" pos="0 -0.0065 0.0837">
+                                                    <inertial pos="0 0 0" mass="0.01" diaginertia="1e-06 1e-06 1e-06" />
+                                                    <joint name="gripper_l_joint" pos="0 0 0" axis="-1 0 0" type="slide" limited="true" range="0 0.025" />
+                                                    <geom type="mesh" rgba="0.8 0.8 0.8 1" mesh="finger" />
+                                                </body>
+                                                <body name="gripper_l_finger_l" pos="0 0.0065 0.0837" quat="0 0 0 1">
+                                                    <inertial pos="0 0 0" mass="0.01" diaginertia="1e-06 1e-06 1e-06" />
+                                                    <joint name="gripper_l_joint_m" pos="0 0 0" axis="-1 0 0" type="slide" limited="true" range="0 0.025" />
+                                                    <geom type="mesh" rgba="0.8 0.8 0.8 1" mesh="finger" />
+                                                </body>
+                                            </body>
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+
+        <body name="object" pos="0.0 0.0 0.04" >
+            <!--geom rgba="0.5 0.5 0.5 0" type="sphere" size="0.05 0.05" density="0.00001" contype="1" conaffinity="0"/-->
+            <geom rgba="1 0.3 1 1" type="cylinder" size="0.04 0.04 0.04" density="0.00001" contype="1" conaffinity="0"/>
+            <joint name="obj_slidey" type="slide" pos="0 0 0" axis="0 1 0" range="-10.3213 10.3" damping="0.5"/>
+            <joint name="obj_slidex" type="slide" pos="0 0 0" axis="1 0 0" range="-10.3213 10.3" damping="0.5"/>
+        </body>
+
+        <body name="goal" pos="0.0 0.0 0.0">
+            <geom rgba="1 0 0 1" type="cylinder" size="0.05 0.001 0.1" density='0.00001' contype="0" conaffinity="0"/>
+            <joint name="goal_slidey" type="slide" pos="0 0 0" axis="0 1 0" range="-10.3213 10.3" damping="0.5"/>
+            <joint name="goal_slidex" type="slide" pos="0 0 0" axis="1 0 0" range="-10.3213 10.3" damping="0.5"/>
+        </body>
+    </worldbody>
+
+    <actuator>
+        <velocity joint="yumi_joint_1_r" ctrlrange="-200.0 200.0" ctrllimited="true" kv="100"/>
+        <velocity joint="yumi_joint_2_r" ctrlrange="-20.0 20.0" ctrllimited="true" kv="100"/>
+        <velocity joint="yumi_joint_7_r" ctrlrange="-20.0 20.0" ctrllimited="true" kv="60"/>
+        <velocity joint="yumi_joint_3_r" ctrlrange="-20.0 20.0" ctrllimited="true" kv="30"/>
+        <velocity joint="yumi_joint_4_r" ctrlrange="-20.0 20.0" ctrllimited="true" kv="30"/>
+        <velocity joint="yumi_joint_5_r" ctrlrange="-20.0 20.0" ctrllimited="true" kv="30"/>
+        <velocity joint="yumi_joint_6_r" ctrlrange="-20.0 20.0" ctrllimited="true" kv="30"/>
+        <!--velocity joint="yumi_joint_1_l" ctrlrange="-200.0 200.0" ctrllimited="true" kv="100"/>
+        <velocity joint="yumi_joint_2_l" ctrlrange="-20.0 20.0" ctrllimited="true" kv="100"/>
+        <velocity joint="yumi_joint_7_l" ctrlrange="-20.0 20.0" ctrllimited="true" kv="60"/>
+        <velocity joint="yumi_joint_3_l" ctrlrange="-20.0 20.0" ctrllimited="true" kv="30"/>
+        <velocity joint="yumi_joint_4_l" ctrlrange="-20.0 20.0" ctrllimited="true" kv="30"/>
+        <velocity joint="yumi_joint_5_l" ctrlrange="-20.0 20.0" ctrllimited="true" kv="30"/>
+        <velocity joint="yumi_joint_6_l" ctrlrange="-20.0 20.0" ctrllimited="true" kv="30"/-->
+    </actuator>
+
+</mujoco>
