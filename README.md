@@ -1,0 +1,71 @@
+# Skew-Explore
+
+This is the repository hosting the code used for the paper Skew-Explore.
+
+## Installation
+
+### Dependencies
+
+#### Python version
+
+For this experiment we use Python `3.6`. Here's a [guide to installing Python `3.6` in Ubuntu 16.04](http://ubuntuhandbook.org/index.php/2017/07/install-python-3-6-1-in-ubuntu-16-04-lts/)
+
+#### Python Dependencies
+
+For managing Python dependencies it is possible to use [conda](https://conda.io/en/latest/). Once you have cloned the repository, proceed to install the dependencies defined in the `Pipfile` or 'environment.yml'
+
+#### conda
+
+```
+conda update conda
+conda env create -f environment.yml
+``` 
+
+### Install rllab
+The "point_maze" environment requires [rllab](https://github.com/rll/rllab) and MuJoCo version 131
+
++ First clone rllab from [HERE](https://github.com/rll/rllab.git).
++ Then download mujoco version 131 [HERE](https://www.roboti.us/download/mjpro131_linux.zip).
++ cd to the rllab repo and run "pip install ." to install it.
++ Run "./scripts/setup_mujoco.sh" to setup MuJoCo environment.
++ The "vendor" folder in rllab should contain two sub-folders "mujoco" and "mujoco_models". 
+
+
+### Install Mojuco
+The "yumi" and "yumi_door_button" environments are implemented using MuJoCo version 150.
+
+Please follow this [link](https://github.com/openai/mujoco-py) to install MuJoCo 150.
+
+
+### Install stable-baselines from the submodule
+```
+sudo apt-get update && sudo apt-get install cmake libopenmpi-dev python3-dev zlib1g-dev
+pip install stable-baselines
+``` 
+
+### Getting started:
+To reproduce the result of the exploration experiments, please run the following commands:
++ for point_maze environment
+```
+python run_skew_explore.py --plot_coverage --alg her_sac --env maze --save_path maze_hersac_distrib --reward_type density --goal_bandwidth 2 --trajectory_bandwidth 0.5 --use_index
+``` 
++ for yumi_door environment
+```
+python run_skew_explore.py --plot_coverage --alg her_sac --env yumi --save_path door_hersac_distrib --reward_type density --goal_bandwidth 1.5 --trajectory_bandwidth 0.05 --use_index --use_auto_scale
+``` 
+
+
+To reproduce the result of the sparse reward experiments, please run the following commands:
++ for point_maze environment
+```
+python run_skew_explore.py --plot_coverage --alg her_sac --env maze --save_path maze_hersac_distrib_sparse --reward_type density --goal_bandwidth 2 --trajectory_bandwidth 0.5 --use_index --use_extrinsic_reward
+``` 
++ for yumi_door environment
+```
+python run_skew_explore.py --plot_coverage --alg her_sac --env yumi --save_path door_hersac_distrib_sparse --reward_type density --goal_bandwidth 1.5 --trajectory_bandwidth 0.05 --use_index --use_auto_scale --use_extrinsic_reward
+``` 
++ for yumi_door_button environment
+```
+python run_skew_explore.py --plot_coverage --alg her_sac --env yumi_door_button --save_path doorbutton_hersac_distrib_sparse --reward_type density --goal_bandwidth 1.5 --trajectory_bandwidth 0.2 --use_index --use_auto_scale --use_extrinsic_reward
+``` 
+
