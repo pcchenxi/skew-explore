@@ -84,8 +84,8 @@ class YumiDoorEnv(GoalProposeYumiMocapXYZGEnv, utils.EzPickle):
 
         if self.always_render:
             self.viewer = self._get_viewer('human')
-            self.viewer._run_speed = 1
-            self.viewer._paused = True
+            self.viewer._run_speed = 100
+            # self.viewer._paused = True
     def set_extra_task_params(self):
         """
         Thsi function is used for reading any task-related information from xml fills.(i.e. requires element id in xml file.)

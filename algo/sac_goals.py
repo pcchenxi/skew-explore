@@ -541,8 +541,10 @@ class SAC(OffPolicyRLModel):
             return self
 
     def test(self, steps):
-        self.env.set_goals([[-0.00497384,  0.11419979,  0.32127943, 0.003,  2.5, 0.02]])
-
+        # self.env.set_goals([[-0.00497384,  0.11419979,  0.32127943, 0.003,  2.5, 0.02]])
+        # goal = np.array([[-0.07863348, -0.00893711,  0.2746492,  -0.0135142,  -1.52]]) # door
+        goal = np.array([[-1, 3.5]])
+        self.env.set_goals(goal)
         trajectory = []
         obs_dict = self.env.reset()
         obs = np.concatenate((obs_dict['observation'], obs_dict['achieved_goal'], obs_dict['desired_goal']))
@@ -557,16 +559,16 @@ class SAC(OffPolicyRLModel):
             new_obs, reward, done, info = self.env.step(rescaled_action)
             obs_dict = new_obs 
             obs = np.concatenate((obs_dict['observation'], obs_dict['achieved_goal'], obs_dict['desired_goal']))
-            state = self.env.sim.get_state().qpos[:8]
-            if state[-1] > -0.02:
-                state[-1] = 0
-            else:
-                state[-1] = 1
-            # print('[', state[0], ',', state[1], ',', state[2], ',', state[3], ',', state[4], ',', state[5], ',', state[6], ',', state[7], ']')
-            trajectory.append(state)
+        #     state = self.env.sim.get_state().qpos[:8]
+        #     if state[-1] > -0.02:
+        #         state[-1] = 0
+        #     else:
+        #         state[-1] = 1
+        #     # print('[', state[0], ',', state[1], ',', state[2], ',', state[3], ',', state[4], ',', state[5], ',', state[6], ',', state[7], ']')
+        #     trajectory.append(state)
 
 
-        np.save('./trajectory', np.array(trajectory))
+        # np.save('./trajectory', np.array(trajectory))
 
 
     def plot_tra(self, t, tra_obs, sampled_goal):
