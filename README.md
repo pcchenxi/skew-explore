@@ -1,6 +1,6 @@
 # Skew-Explore
 
-This is the repository hosting the code used for the paper Skew-Explore. The code contains the implementation of the Skew-Explore algorithm, 3 goal-proposing environments in Mujoco, RL algorithms including PPO, SAC, HER, and RND. The PointMaze environment is modified from the [rllab](https://github.com/rll/rllab), the RL algorithms are modiflied from the [stable-baselines](https://github.com/hill-a/stable-baselines) and RND is inspired by [random-network-distillation](https://github.com/openai/random-network-distillation).
+This is the repository hosting the code used for the paper Skew-Explore. The code contains the implementation of the Skew-Explore algorithm, 3 goal-proposing environments in Mujoco, RL algorithms including PPO, SAC, HER, and RND. The PointMaze environment is modified from the [rllab](https://github.com/rll/rllab), the RL algorithms are modified from the [stable-baselines](https://github.com/hill-a/stable-baselines) and RND is inspired by [random-network-distillation](https://github.com/openai/random-network-distillation).
 
 ## Installation
 
@@ -8,7 +8,7 @@ This is the repository hosting the code used for the paper Skew-Explore. The cod
 
 #### Python version
 
-For this experiment we use Python `3.6`. Here's a [guide to installing Python `3.6` in Ubuntu 16.04](http://ubuntuhandbook.org/index.php/2017/07/install-python-3-6-1-in-ubuntu-16-04-lts/)
+For this experiment, we use Python `3.6`. Here's a [guide to installing Python `3.6` in Ubuntu 16.04](http://ubuntuhandbook.org/index.php/2017/07/install-python-3-6-1-in-ubuntu-16-04-lts/)
 
 #### Python Dependencies
 
