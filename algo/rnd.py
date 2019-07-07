@@ -42,8 +42,7 @@ class RandomNetworkDistilation(object):
         xrp = tf.layers.dense(inputs=xrp, units=32 * 2 * 1, activation=tf.nn.leaky_relu)
 
         X_r_hat = tf.layers.dense(inputs=xrp, units=128, activation=tf.nn.relu)
-        X_r_hat = tf.layers.dense(inputs=X_r_hat, units=128, activation=tf.nn.relu)
-        X_r_hat = tf.layers.dense(inputs=xrp, units=self.encoded_f_size, activation=None)
+        X_r_hat = tf.layers.dense(inputs=X_r_hat, units=self.encoded_f_size, activation=None)
 
         self.int_rew = tf.reduce_mean(tf.square(tf.stop_gradient(X_r) - X_r_hat), axis=-1, keep_dims=True)
 

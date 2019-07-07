@@ -1,6 +1,6 @@
 # Skew-Explore
 
-This is the repository hosting the code used for the paper Skew-Explore.
+This is the repository hosting the code used for the paper Skew-Explore. The code contains the implementation of the Skew-Explore algorithm, 3 goal-proposing environments in Mujoco, RL algorithms including PPO, SAC, HER, and RND. The PointMaze environment is modified from the [rllab](https://github.com/rll/rllab), the RL algorithms are modiflied from the [stable-baselines](https://github.com/hill-a/stable-baselines) and RND is inspired by [random-network-distillation](https://github.com/openai/random-network-distillation).
 
 ## Installation
 
@@ -38,6 +38,7 @@ Please follow this [link](https://github.com/openai/mujoco-py) to install MuJoCo
 
 
 ### Install stable-baselines from the submodule
+The code should be run with the stable-baselines from the submodule.
 ```
 sudo apt-get update && sudo apt-get install cmake libopenmpi-dev python3-dev zlib1g-dev
 pip install stable-baselines
@@ -47,25 +48,25 @@ pip install stable-baselines
 To reproduce the result of the exploration experiments, please run the following commands:
 + for point_maze environment
 ```
-python run_skew_explore.py --plot_coverage --alg her_sac --env maze --save_path maze_hersac_distrib --reward_type density --goal_bandwidth 2 --trajectory_bandwidth 0.5 --use_index
+python run_skew_explore.py --plot_coverage --alg her_sac --env maze --save_path maze_hersac_distrib --reward_type density --goal_bandwidth 2 --trajectory_bandwidth 0.5 --use_index --render
 ``` 
 + for yumi_door environment
 ```
-python run_skew_explore.py --plot_coverage --alg her_sac --env yumi --save_path door_hersac_distrib --reward_type density --goal_bandwidth 1.5 --trajectory_bandwidth 0.05 --use_index --use_auto_scale
+python run_skew_explore.py --plot_coverage --alg her_sac --env yumi --save_path door_hersac_distrib --reward_type density --goal_bandwidth 1.5 --trajectory_bandwidth 0.05 --use_index --use_auto_scale  --render
 ``` 
 
 
 To reproduce the result of the sparse reward experiments, please run the following commands:
 + for point_maze environment
 ```
-python run_skew_explore.py --plot_coverage --alg her_sac --env maze --save_path maze_hersac_distrib_sparse --reward_type density --goal_bandwidth 2 --trajectory_bandwidth 0.5 --use_index --use_extrinsic_reward
+python run_skew_explore.py --plot_coverage --alg her_sac --env maze --save_path maze_hersac_distrib_sparse --reward_type density --goal_bandwidth 2 --trajectory_bandwidth 0.5 --use_index --use_extrinsic_reward  --render
 ``` 
 + for yumi_door environment
 ```
-python run_skew_explore.py --plot_coverage --alg her_sac --env yumi --save_path door_hersac_distrib_sparse --reward_type density --goal_bandwidth 1.5 --trajectory_bandwidth 0.05 --use_index --use_auto_scale --use_extrinsic_reward
+python run_skew_explore.py --plot_coverage --alg her_sac --env yumi --save_path door_hersac_distrib_sparse --reward_type density --goal_bandwidth 1.5 --trajectory_bandwidth 0.05 --use_index --use_auto_scale --use_extrinsic_reward  --render
 ``` 
 + for yumi_door_button environment
 ```
-python run_skew_explore.py --plot_coverage --alg her_sac --env yumi_door_button --save_path doorbutton_hersac_distrib_sparse --reward_type density --goal_bandwidth 1.5 --trajectory_bandwidth 0.2 --use_index --use_auto_scale --use_extrinsic_reward
+python run_skew_explore.py --plot_coverage --alg her_sac --env yumi_door_button --save_path doorbutton_hersac_distrib_sparse --reward_type density --goal_bandwidth 1.5 --trajectory_bandwidth 0.2 --use_index --use_auto_scale --use_extrinsic_reward --use_extrinsic_reward --history_buffer_size 5000000  --render
 ``` 
 

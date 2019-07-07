@@ -68,8 +68,8 @@ def arg_parser():
 def main():
     args = arg_parser()
     exp_name = args.save_path
-    # args.save_path = '/home/xi/model/final_exp/' + args.save_path
-    args.save_path = '/home/xi/model/paper_exp/' + args.save_path
+    # args.save_path = '/home/xi/model/paper_exp/' + args.save_path
+    args.save_path = './' + args.save_path
     if not os.path.exists(args.save_path):
         os.mkdir(args.save_path)
 
@@ -108,8 +108,10 @@ def main():
 
     if args.alg  == 'test':
         env = make_env(args.env, args)()
-        model = SAC.load('/home/xi/model/model.pkl', env=env, args=args)
-        model.test(120)
+        model = SAC.load('/home/xi/model/maze_1.pkl', env=env, args=args)
+
+        for _ in range(50):
+            model.test(100)
 
 if __name__ == '__main__':
     main()

@@ -153,11 +153,11 @@ class GoalProposeYumiEnv(YumiEnv):
                     self.task_evaluation.append(0)
             mean_task_evaluation = np.mean(self.task_evaluation)
             self.hist_task_evaluation.append(mean_task_evaluation)
-            np.save(self.args.save_path + '/extrinsic_reward_' + str(self.tra_count), np.array(self.tra_extrinsic_rewards))
-            np.save(self.args.save_path + '/task_evaluation', np.array(self.hist_task_evaluation))
+            # np.save(self.args.save_path + '/extrinsic_reward_' + str(self.tra_count), np.array(self.tra_extrinsic_rewards))
+            # np.save(self.args.save_path + '/task_evaluation', np.array(self.hist_task_evaluation))
 
-            print(self.tra_extrinsic_rewards)
-            print(self.tra_count, mean_task_evaluation)
+            # print(self.tra_extrinsic_rewards)
+            # print(self.tra_count, mean_task_evaluation)
         self.tra_count += 1
         self.tra_extrinsic_rewards = []
 

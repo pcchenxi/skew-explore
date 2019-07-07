@@ -202,18 +202,18 @@ class GoalProposePointMazeEnv(MazeEnv):
 
         self.ep_trajectory = []
         if len(self.tra_extrinsic_rewards) > 0:
-            for i in range(self.ep_length - 10, self.ep_length, 1):
+            for i in range(len(self.tra_extrinsic_rewards) - 10, len(self.tra_extrinsic_rewards), 1):
                 if self.tra_extrinsic_rewards[i] > 0:
                     self.task_evaluation.append(1)
                 else:
                     self.task_evaluation.append(0)
             mean_task_evaluation = np.mean(self.task_evaluation)
             self.hist_task_evaluation.append(mean_task_evaluation)
-            np.save(self.args.save_path + '/extrinsic_reward_' + str(self.tra_count), np.array(self.tra_extrinsic_rewards))
-            np.save(self.args.save_path + '/task_evaluation', np.array(self.hist_task_evaluation))
+            # np.save(self.args.save_path + '/extrinsic_reward_' + str(self.tra_count), np.array(self.tra_extrinsic_rewards))
+            # np.save(self.args.save_path + '/task_evaluation', np.array(self.hist_task_evaluation))
 
-            print(self.tra_extrinsic_rewards)
-            print(self.tra_count, mean_task_evaluation)
+            # print(self.tra_extrinsic_rewards)
+            # print(self.tra_count, mean_task_evaluation)
             
         self.tra_count += 1
         self.tra_extrinsic_rewards = []

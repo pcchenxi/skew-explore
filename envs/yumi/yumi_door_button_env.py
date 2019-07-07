@@ -17,7 +17,7 @@ class YumiDoorButtonEnv(YumiDoorEnv, utils.EzPickle):
     :param mocap_init_quat: the initial orientation of mocap
     """     
     def __init__(self, reward_type='sparse', goal_dim=6, 
-                    mocap_high=np.hstack((0.0, 0.13, 0.35)), mocap_low=np.hstack((-0.01, -0.155, 0.19)),
+                    mocap_high=np.hstack((0.0, 0.13, 0.35)), mocap_low=np.hstack((-0.02, -0.155, 0.19)),
                     mocap_init_pos=np.array([-0.04670722, -0.150812, 0.265042291]), 
                     mocap_init_quat=np.array([-0.70699531, 0.09357381, -0.4721928, 0.51810765])):
 

@@ -43,7 +43,7 @@
         <material name="red" rgba="1 0.3 0.28 1"/>
     </asset>
     <worldbody>
-        <camera name="extra_1" mode="fixed" pos="1.0 0 0.2" euler="1.57 1.57 0"/>
+        <camera name="extra_1" mode="fixed" pos="2.0 0 0.2" euler="1.57 1.57 0"/>
         <camera name="extra_2" mode="fixed" pos="0.7 0.7 0.2" euler="1.57 2.3 0"/>
         <light diffuse=".5 .5 .5" pos="2 -2 2" dir="-1  1 -1"/>
         <light diffuse=".5 .5 .5" pos="2  2 2" dir="-1 -1 -1"/>
@@ -92,17 +92,17 @@
                                                 <geom type="mesh" rgba="0.8 0.8 0.8 1" mesh="base" />
                                                 <body childclass="yumi_gripper" name="gripper_r_finger_r" pos="-0.002 -0.0 0.0837" >
                                                     <inertial pos="0 0 0" mass="0.01" diaginertia="1e-06 1e-06 1e-06" />
-                                                    <joint name="gripper_r_joint" pos="0 0 0" axis="0.96592582628 0 -0.2588190451" type="slide" limited="true" range="-0.0243 -0.011 "/>
+                                                    <joint name="gripper_r_joint" pos="0 0 0" axis="0.96592582628 0 -0.2588190451" type="slide" limited="true" range="-0.0243 -0.003 "/>
                                                     <!-- <geom type="mesh" rgba="0.8 0.8 0.8 1" mesh="finger" condim="4" friction="1 0.05 0.01"/> -->
-                                                    <geom rgba="0.8 0.8 0.8 1" type="box" pos="0.00 0.00 0.012" size="0.0015 0.001 0.025" quat="0 0.1305262 0 0.9914449" condim="4" friction="1.5 1.5 1.5" density="100"/>
-                                                    <geom rgba="0.8 0.8 0.8 1" type="box" pos="0.0104 0.00 0.037" size="0.0052 0.001 0.0028" quat="0 0.1305262 0 0.9914449" condim="4" friction="1.5 1.5 1.5" density="100"/>
+                                                    <geom rgba="1 0.4 0 1" type="box" pos="0.00 0.00 0.012" size="0.005 0.007 0.04" quat="0 0.0261769 0 0.9996573" condim="4" friction="1.5 1.5 1.5" density="100"/>
+                                                    <!-- <geom rgba="0.8 0.8 0.8 1" type="box" pos="0.0104 0.00 0.037" size="0.0052 0.001 0.0028" quat="0 0.1305262 0 0.9914449" condim="4" friction="1.5 1.5 1.5" density="100"/> -->
                                                 </body>
                                                 <body childclass="yumi_gripper" name="gripper_r_finger_l" pos="0.002 0.0 0.0837" quat="0 0 0 1">
                                                     <inertial pos="0 0 0" mass="0.01" diaginertia="1e-06 1e-06 1e-06" />
-                                                    <joint name="gripper_r_joint_m" pos="0 0 0" axis="0.96592582628 0 -0.2588190451" type="slide" limited="true" range="-0.0243 -0.011" />
+                                                    <joint name="gripper_r_joint_m" pos="0 0 0" axis="0.96592582628 0 -0.2588190451" type="slide" limited="true" range="-0.0243 -0.003" />
                                                     <!-- <geom type="mesh" rgba="0.8 0.8 0.8 1" mesh="finger" condim="4" friction="1 0.05 0.01"/> -->
-                                                    <geom rgba="0.8 0.8 0.8 1" type="box" pos="0.00 0.00 0.012" size="0.0015 0.001 0.025" quat="0 0.1305262 0 0.9914449"  condim="4" friction="1.5 1.5 1.5" density="100"/>
-                                                    <!-- <geom rgba="0.8 0.8 0.8 1" type="box" pos="0.0084 0.00 0.037" size="0.00001 0.01 0.0028" quat="0 0.1305262 0 0.9914449" condim="4" friction="1.5 1.5 1.5"/> -->
+                                                    <geom rgba="1 0.4 0 1" type="box" pos="0.00 0.00 0.012" size="0.005 0.007 0.04" quat="0 0.0261769 0 0.9996573"  condim="4" friction="1.5 1.5 1.5" density="100"/>
+                                                    <geom rgba="1 0.4 0 1" type="box" pos="0.005 0.00 0.047" size="0.0052 0.007 0.005" quat="0 0.0 0 0.1" condim="4" friction="1.5 1.5 1.5" density="100"/>
                                                 </body>
                                             </body>
                                         </body>
@@ -117,7 +117,7 @@
 
 
         <body name="goal" pos="0 0 0">
-            <site name="goal" pos="0 0 0" size="0.04 0.04 0.02" rgba="1 0 0 1" type="sphere"></site>
+            <site name="goal" pos="0 0 0" size="0.04 0.04 0.02" rgba="1 0 0 0" type="sphere"></site>
             <!-- <geom rgba="1 0 0 1" type="sphere" size="0.04 0.001 0.04" density='0.000001'/> -->
             <!-- <joint name="goal_slidex" type="slide" pos="0 0 0" axis="1 0 0" range="-10.3213 10.3" damping="1.0"/>
             <joint name="goal_slidey" type="slide" pos="0 0 0" axis="0 1 0" range="-10.3213 10.3" damping="1.0"/>
