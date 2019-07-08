@@ -1,4 +1,4 @@
-name: base
+name: skew_explore
 channels:
   - defaults
 dependencies:

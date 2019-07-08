@@ -29,11 +29,15 @@ The "point_maze" environment requires [rllab](https://github.com/rll/rllab) and 
 + cd to the rllab repo and run "pip install ." to install it.
 + Run "./scripts/setup_mujoco.sh" to setup MuJoCo environment.
 + The "vendor" folder in rllab should contain two sub-folders "mujoco" and "mujoco_models". 
++ You may need to copy the "vendor" folder to "./anaconda3/envs/skew_explore/lib/python3.6/site-packages" if it cannot be found.
 
+other dependencies:
+```
+pip install cached_property mako theano
+``` 
 
-### Install Mojuco
+### Install Mojuco and mujoco_py
 The "yumi" and "yumi_door_button" environments are implemented using MuJoCo version 150.
-
 Please follow this [link](https://github.com/openai/mujoco-py) to install MuJoCo 150.
 
 
@@ -42,6 +46,16 @@ The code should be run with the stable-baselines from the submodule.
 ```
 sudo apt-get update && sudo apt-get install cmake libopenmpi-dev python3-dev zlib1g-dev
 pip install stable-baselines
+``` 
+
+### Install gym
+```
+pip install gym
+``` 
+
+### Install tensorflow
+```
+pip install tensorflow
 ``` 
 
 ### Getting started:
