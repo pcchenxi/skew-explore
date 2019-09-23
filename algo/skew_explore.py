@@ -175,16 +175,19 @@ class SkewExploreBase():
         """          
         fig,(ax1, ax2, ax3, ax4, ax5)  = plt.subplots(5,1, figsize=(5,20))
 
-        if self.plot_density:
+        if self.plot_entropy or self.plot_density:
             eval_sample_log_density = self.get_log_density(self.eval_sample)
-            eval_sample_density = np.exp(eval_sample_log_density)
+            eval_sample_density = np.exp(eval_sample_log_density)            
+
+        if self.plot_density:
             zz_density= np.reshape(eval_sample_density, self.xx.shape)            
             im = ax1.pcolormesh(self.yy, self.xx, zz_density)
 
         if self.plot_entropy:
             entropy = self.compute_entropy(eval_sample_density, eval_sample_log_density)
             self.entropy.append(entropy)
-            ax3.plot(self.entropy)   
+            ax3.plot(self.entropy)
+            # np.save(self.args.save_path + '/entropy.npy', self.entropy)
 
         if self.plot_coverage:
             z_coverage = self.get_coverage()
@@ -196,7 +199,8 @@ class SkewExploreBase():
             ax4.plot(self.task_reward)
         elif self.plot_overall_coverage:
             self.coverages.append(z_coverage.mean())
-            ax4.plot(self.coverages)            
+            ax4.plot(self.coverages)
+            # np.save(self.args.save_path + '/coverage.npy', self.coverages)          
 
         sample_goal = self.sample_goal(200)
         ax5.scatter(sample_goal[:, 0], sample_goal[:, 1], s=10, color='red')

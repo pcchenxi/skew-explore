@@ -45,7 +45,8 @@ Please follow this [link](https://github.com/openai/mujoco-py) to install MuJoCo
 The code should be run with the stable-baselines from the submodule.
 ```
 sudo apt-get update && sudo apt-get install cmake libopenmpi-dev python3-dev zlib1g-dev
-pip install stable-baselines
+cd stable-baselines
+pip install .
 ``` 
 
 ### Install gym

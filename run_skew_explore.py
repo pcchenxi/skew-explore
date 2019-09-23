@@ -67,9 +67,9 @@ def arg_parser():
 
 def main():
     args = arg_parser()
-    exp_name = args.save_path
-    # args.save_path = '/home/xi/model/paper_exp/' + args.save_path
-    args.save_path = './' + args.save_path
+    # exp_name = args.save_path
+    args.save_path = '/home/xi/model/paper_exp/' + args.save_path
+    # args.save_path = './' + args.save_path
     if not os.path.exists(args.save_path):
         os.mkdir(args.save_path)
 

@@ -66,6 +66,8 @@ class GoalProposePointMazeEnv(MazeEnv):
         self.reward_type = self.args.reward_type
         self.kde_goal = KernelDensity(kernel='gaussian', bandwidth=self.args.goal_bandwidth)
         self.kde_tra = KernelDensity(kernel='gaussian', bandwidth=self.args.trajectory_bandwidth)
+
+        print('goal bandwidth: ', self.args.goal_bandwidth)
         # self.set_observation_space()
 
         self.ep_length = self.args.ep_length
@@ -168,7 +170,10 @@ class GoalProposePointMazeEnv(MazeEnv):
         else:
             pass
 
-        task_reward = self.compute_extrinsic_reward(achieved_goal)
+        if self.args.use_extrinsic_reward:
+            task_reward = self.compute_extrinsic_reward(achieved_goal)
+        else:
+            task_reward = 0
 
         return reward + task_reward
 
